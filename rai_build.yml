@@ -1,0 +1,20 @@
+rai:
+  version: 0.2
+  image: weiren2/ece408-sp20:topic-4-digit-test
+resources:
+  cpu:
+    architecture: amd64 # use amd64 unless your project requires running on a different architecture
+  gpu:
+    count: 1
+  limits:
+    network: true
+commands:
+  build: # commands in the following seciton are executed sequentially
+    - nvidia -smi
+    - pwd # check where we are right now
+    - cp -r /src .
+    - cmake ./src
+    - /bin/bash -c "make -j$(nproc)"
+    - ./mnist_example
+    #- ./cuda-program ...
+    #- Evaluate accelerated version ...
