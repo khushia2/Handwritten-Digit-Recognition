@@ -6,3 +6,8 @@ In this project, I implemented a fully-connected Neural Network to recognize han
 
 # Dataset
 The MNIST dataset contains 60,000 training and 10,000 testing images of handwritten digits from 0-9 in black and white pixels of size 28x28.
+
+# CUDA Optimizations
+* Tiled matrix multiplication
+* Better memory coalescing by accessing weight matrices in column-major order
+* Utilizing shared memory
